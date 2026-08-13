@@ -19,6 +19,13 @@ const imbue = Imbue({
 const title = "cmd + shift + elite · HH Goa 2026 Frame Generator";
 const description =
   "cmd + shift + elite's Hacker House Goa 2026 frame generator. Upload a photo, get a PFP, Builder ID, or team frame, then share on X with #FrameInGoa. No login.";
+const ogImage = {
+  url: "/og.jpg",
+  width: 1920,
+  height: 1080,
+  alt: "cmd + shift + elite HH Goa 2026 frame generator. Upload a photo, pick a PFP, Builder ID, or team frame, then share with #FrameInGoa.",
+  type: "image/jpeg",
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL(absoluteUrl()),
@@ -61,11 +68,13 @@ export const metadata: Metadata = {
     siteName: "cmd + shift + elite",
     title,
     description,
+    images: [ogImage],
   },
   twitter: {
     card: "summary_large_image",
     title,
     description,
+    images: [ogImage],
   },
   category: "technology",
 };
