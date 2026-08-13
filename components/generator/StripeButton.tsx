@@ -1,37 +1,27 @@
-import type { CSSProperties, ReactNode } from "react";
-import { APPLY_URL } from "@/lib/constants";
+"use client";
 
-type CtaButtonProps = {
-  href?: string;
+import type { ButtonHTMLAttributes } from "react";
+
+const TOP = "/assets/002-group-54-14.svg";
+const BOTTOM = "/assets/008-group-54-324.svg";
+
+type Props = ButtonHTMLAttributes<HTMLButtonElement> & {
   label: string;
-  className?: string;
-  style?: CSSProperties;
-  topStripe: string;
-  bottomStripe: string;
-  glow?: boolean;
-  labelStyle?: CSSProperties;
-  children?: ReactNode;
 };
 
-export function CtaButton({
-  href = APPLY_URL,
-  label,
-  className = "",
-  style,
-  topStripe,
-  bottomStripe,
-  glow = false,
-  labelStyle,
-}: CtaButtonProps) {
+export function StripeButton({ label, className = "", disabled, ...props }: Props) {
   return (
-    <a
-      href={href}
-      target="_blank"
-      rel="noopener noreferrer"
+    <button
+      type="button"
+      {...props}
+      disabled={disabled}
       aria-label={label}
-      className={`${glow ? "cta-button-glow fast-cta" : ""} block overflow-hidden rounded-none border-0 bg-transparent p-0 hover:opacity-100 cursor-pointer ${className}`}
-      tabIndex={0}
-      style={style}
+      className={`cta-button-glow fast-cta relative block w-full overflow-hidden rounded-none border-0 p-0 disabled:cursor-not-allowed ${className}`}
+      style={{
+        height: 65.67,
+        background: "#FEE101",
+        opacity: disabled ? 0.85 : 1,
+      }}
     >
       <p
         style={{
@@ -44,7 +34,7 @@ export function CtaButton({
           fontFamily: "var(--font-imbue)",
           fontWeight: 700,
           fontSize: 38,
-          lineHeight: 1,
+          lineHeight: "1em",
           textTransform: "uppercase",
           textAlign: "center",
           margin: 0,
@@ -54,7 +44,6 @@ export function CtaButton({
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          ...labelStyle,
         }}
       >
         {label}
@@ -67,7 +56,7 @@ export function CtaButton({
           top: 0,
           width: "100%",
           height: 7,
-          backgroundImage: `url(${topStripe})`,
+          backgroundImage: `url(${TOP})`,
           backgroundRepeat: "repeat-x",
           backgroundPosition: "left top",
           backgroundSize: "101px 7px",
@@ -83,7 +72,7 @@ export function CtaButton({
           bottom: 0,
           width: "100%",
           height: 7,
-          backgroundImage: `url(${bottomStripe})`,
+          backgroundImage: `url(${BOTTOM})`,
           backgroundRepeat: "repeat-x",
           backgroundPosition: "left top",
           backgroundSize: "101px 7px",
@@ -91,6 +80,6 @@ export function CtaButton({
           zIndex: 2,
         }}
       />
-    </a>
+    </button>
   );
 }

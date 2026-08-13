@@ -1,10 +1,12 @@
-import type { Metadata } from "next";
 import { Imbue, Victor_Mono } from "next/font/google";
+import type { Metadata } from "next";
+import { absoluteUrl } from "@/lib/site";
 import "./globals.css";
 
 const victorMono = Victor_Mono({
   variable: "--font-victor-mono",
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
   display: "swap",
 });
 
@@ -15,11 +17,22 @@ const imbue = Imbue({
 });
 
 export const metadata: Metadata = {
-  title: "HH GOA | Hacker House Goa 2026",
+  metadataBase: new URL(absoluteUrl()),
+  title: "HH Goa 2026 Frame Generator",
   description:
-    "4 days. one rhythm. everything intentional. Join us for an experimental hackathon experience in Goa, India.",
+    "Upload a photo, get a branded PFP frame or Builder ID for Hacker House Goa 2026. Download and share on X with #FrameInGoa.",
   icons: {
     icon: "/favicon.webp",
+  },
+  openGraph: {
+    title: "HH Goa 2026 Frame Generator",
+    description: "PFP frame and Builder ID. Share with #FrameInGoa.",
+    url: absoluteUrl(),
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "HH Goa 2026 Frame Generator",
+    description: "PFP frame and Builder ID. Share with #FrameInGoa.",
   },
 };
 
