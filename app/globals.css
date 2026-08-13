@@ -1,0 +1,138 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-brand-primary: #0b6839;
+  --color-brand-accent: #fee101;
+  --color-brand-pink: #ff0080;
+  --color-brand-white: #fff;
+  --color-brand-offwhite: #fffbe8;
+  --color-brand-black: #000;
+  --font-heading: var(--font-imbue);
+  --font-body: var(--font-victor-mono);
+  --font-sans: var(--font-victor-mono);
+  --radius: 0.625rem;
+}
+
+:root {
+  --background: #0b6839;
+  --foreground: #fff;
+  --card: #0b6839;
+  --card-foreground: #fff;
+  --popover: #0b6839;
+  --popover-foreground: #fff;
+  --primary: #0b6839;
+  --primary-foreground: #fff;
+  --secondary: #fee101;
+  --secondary-foreground: #000;
+  --muted: #0b6839;
+  --muted-foreground: #fee101;
+  --accent: #ff0080;
+  --accent-foreground: #fff;
+  --destructive: #dc2626;
+  --border: #0b6839;
+  --input: #0b6839;
+  --ring: #fee101;
+}
+
+@layer base {
+  * {
+    border-color: var(--border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    background-color: #0b6839;
+  }
+
+  body {
+    background-color: var(--background);
+    color: #fff;
+    font-family: var(--font-victor-mono);
+  }
+
+  ::selection {
+    color: #000;
+    background-color: #fee101;
+  }
+}
+
+.font-heading {
+  font-family: var(--font-imbue);
+}
+
+.font-body {
+  font-family: var(--font-victor-mono);
+}
+
+.text-wrap-balance {
+  text-wrap: balance;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0b6839;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #fee101;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: gold;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #fee101 #0b6839;
+}
+
+@keyframes ctaGlow {
+  0%,
+  to {
+    box-shadow: 0 0 #fee10100, 0 0 #fee10100;
+  }
+  50% {
+    box-shadow: 0 0 18px 4px #fee1014d, 0 0 40px 8px #fee1011a;
+  }
+}
+
+.cta-button-glow {
+  transition: transform 60ms linear, filter 60ms linear;
+  animation: 3s ease-in-out infinite ctaGlow;
+}
+
+.fast-cta {
+  will-change: transform;
+  backface-visibility: hidden;
+  transition: transform 40ms linear, filter 40ms linear;
+}
+
+.fast-cta:hover {
+  transform: scale(1.06);
+}
+
+.fast-cta:active {
+  transform: scale(0.98);
+}
+
+a,
+button {
+  transition: filter 0.2s, transform 0.2s;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline-offset: 2px;
+  outline: 2px solid #fee101;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cta-button-glow {
+    animation: none;
+  }
+}
