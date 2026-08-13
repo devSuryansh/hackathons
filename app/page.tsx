@@ -19,7 +19,7 @@ export default function HomePage() {
             className="uppercase"
             style={{ color: "#FEE101", fontWeight: 700, fontSize: 13, letterSpacing: "0.16em" }}
           >
-            HH Goa 2026 · Task 1
+            HH Goa 2026 · cmd + shift + elite · Task 1
           </p>
           <h1
             className="font-heading mt-2 max-w-3xl text-6xl uppercase leading-[0.9] sm:text-8xl"
