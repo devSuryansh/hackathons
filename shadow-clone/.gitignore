@@ -1,0 +1,18 @@
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.env
+.env.*
+!.env.example
+data/clone.db
+data/*.db
+.DS_Store
+.pytest_cache/
+.ruff_cache/
+dist/
+build/
+*.log
+# Local research dumps / personal notes — not for publish
+resources/
+*.local.md
